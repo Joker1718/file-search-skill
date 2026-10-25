@@ -4,7 +4,7 @@
 name: file-search
 description: "Use when searching codebases (text, structural/AST, files by name, PDFs/archives, code stats) or building context before a task."
 license: "(MIT AND CC-BY-SA-4.0). See LICENSE-MIT and LICENSE-CC-BY-SA-4.0"
-compatibility: "Requires ripgrep (rg). Optional: fd, ast-grep, rga, tokei, scc, semgrep."
+compatibility: "Requires ripgrep (rg), and uv for the plugin's search-reminder hook (runs it on Python 3.11 or later). Optional: fd, ast-grep, rga, tokei, scc, semgrep."
 metadata:
   author: Netresearch DTT GmbH
   version: "1.8.3"

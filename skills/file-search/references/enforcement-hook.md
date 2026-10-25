@@ -45,11 +45,11 @@ session).
 
 ```bash
 H="$CLAUDE_PLUGIN_ROOT/scripts/pre_bash_search_nudge.py"   # or the plugin cache path
-echo '{"tool_name":"Bash","tool_input":{"command":"find . -name x"}}'    | python3 "$H"  # warns
-echo '{"tool_name":"Bash","tool_input":{"command":"rg TODO src/"}}'      | python3 "$H"  # silent
+echo '{"tool_name":"Bash","tool_input":{"command":"find . -name x"}}'    | uv run "$H"  # warns
+echo '{"tool_name":"Bash","tool_input":{"command":"rg TODO src/"}}'      | uv run "$H"  # silent
 ```
 
-The full case list runs as `python3 scripts/test_pre_bash_search_nudge.py`.
+The full case list runs as `uv run --python 3.11 python scripts/test_pre_bash_search_nudge.py`.
 
 If nothing happens on a real `find .`, the plugin's hooks have not been picked
 up — open `/hooks` once, or restart the session.

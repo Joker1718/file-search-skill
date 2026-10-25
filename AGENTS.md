@@ -42,7 +42,7 @@
 
 - `bash scripts/verify-harness.sh --format=text --status` — check harness maturity level
 - `bash Build/Scripts/check-plugin-version.sh` — verify plugin.json and SKILL.md versions match
-- `python3 scripts/test_pre_bash_search_nudge.py` — run the hook's behavioural tests
+- `uv run --python 3.11 python scripts/test_pre_bash_search_nudge.py` — run the hook's behavioural tests
 
 Git hooks are auto-configured via `.envrc` (`git config core.hooksPath Build/hooks`).
 
