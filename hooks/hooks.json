@@ -7,7 +7,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "uv run ${CLAUDE_PLUGIN_ROOT}/scripts/pre_bash_search_nudge.py || true",
+            "command": "uv run \"${CLAUDE_PLUGIN_ROOT}/scripts/pre_bash_search_nudge.py\" || true",
             "timeout": 3
           }
         ]
