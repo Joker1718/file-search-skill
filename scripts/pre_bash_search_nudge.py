@@ -1,6 +1,11 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 # SPDX-License-Identifier: MIT
 # SPDX-FileCopyrightText: Netresearch DTT GmbH
+#
+# /// script
+# requires-python = ">=3.11"
+# dependencies = []
+# ///
 """PreToolUse hook for Bash: point shell searches at the search tools.
 
 This skill's table — `rg` instead of `grep`/`grep -r`, `fd` instead of `find`,
