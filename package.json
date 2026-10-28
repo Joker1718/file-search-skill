@@ -26,6 +26,9 @@
   "files": [
     "skills/file-search/",
     "scripts/",
+    "plugin.yaml",
+    "__init__.py",
+    "docs/HERMES.md",
     "LICENSE-MIT",
     "LICENSE-CC-BY-SA-4.0",
     "README.md"

@@ -237,9 +237,12 @@ def main() -> int:
         payload = json.load(sys.stdin)
     except (ValueError, OSError):
         return 0
-    if payload.get("tool_name") != "Bash":
+    # Claude Code sends Bash; Hermes shell hooks send terminal (and retain the
+    # same tool_input.command shape). Keep both adapters on one detector.
+    if payload.get("tool_name") not in {"Bash", "terminal", "shell"}:
         return 0
-    cmd = (payload.get("tool_input") or {}).get("command", "")
+    tool_input = payload.get("tool_input") or payload.get("args") or {}
+    cmd = tool_input.get("command", "") if isinstance(tool_input, dict) else ""
     if not cmd:
         return 0
 

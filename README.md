@@ -80,6 +80,21 @@ Download the [latest release](https://github.com/netresearch/file-search-skill/r
 git clone https://github.com/netresearch/file-search-skill.git
 ```
 
+### Hermes Agent
+
+Hermes supports this repository as both a portable Agent Plugins package and a
+native plugin. Copy or clone it to `~/.hermes/plugins/file-search`, then enable
+and validate it:
+
+```bash
+hermes plugins enable file-search
+hermes plugins doctor ~/.hermes/plugins/file-search --ci
+```
+
+The native adapter registers the skill and a fail-open `pre_tool_call` search
+reminder for Hermes' `terminal` tool. See [docs/HERMES.md](docs/HERMES.md) for
+the hook behavior and shell-hook option.
+
 ### Composer (PHP Projects)
 
 ```bash
@@ -124,9 +139,12 @@ skills/file-search/
     remote-handoff.md               # When to hand off to remote tools
     enforcement-hook.md             # What the PreToolUse search nudge says and stays out of
 hooks/hooks.json                    # Registers the PreToolUse search nudge for the Bash tool
+plugin.yaml                         # Native Hermes plugin manifest
+__init__.py                         # Native Hermes adapter
 scripts/
   pre_bash_search_nudge.py          # The hook (Python, standard library only)
   test_pre_bash_search_nudge.py     # Its behavioural tests
+  test_hermes_plugin.py             # Native Hermes adapter smoke test
 ```
 
 The components and the hook's data flow are described in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).

@@ -30,7 +30,9 @@
 │   ├── ARCHITECTURE.md                 # Architecture overview
 │   ├── SECURITY-ASSURANCE.md           # Security assurance case
 │   └── exec-plans/                     # Execution plans (active, completed)
-├── hooks/hooks.json                    # Registers the PreToolUse search nudge (ships with the plugin)
+├── hooks/hooks.json                    # Registers the Claude Code PreToolUse search nudge
+├── plugin.yaml                          # Native Hermes plugin manifest
+├── __init__.py                          # Native Hermes skill and hook registration
 ├── scripts/
 │   ├── pre_bash_search_nudge.py        # The PreToolUse hook (Python, standard library only)
 │   ├── test_pre_bash_search_nudge.py   # Its behavioural tests
@@ -43,6 +45,7 @@
 - `bash scripts/verify-harness.sh --format=text --status` — check harness maturity level
 - `bash Build/Scripts/check-plugin-version.sh` — verify plugin.json and SKILL.md versions match
 - `uv run --python 3.11 python scripts/test_pre_bash_search_nudge.py` — run the hook's behavioural tests
+- `python scripts/test_hermes_plugin.py` — smoke-test the native Hermes adapter
 
 Git hooks are auto-configured via `.envrc` (`git config core.hooksPath Build/hooks`).
 
